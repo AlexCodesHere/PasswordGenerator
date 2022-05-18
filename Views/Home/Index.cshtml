@@ -1,0 +1,25 @@
+﻿@model PasswordGenerator.Models.GeneratorViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @using (Html.BeginForm("Password", "Home", FormMethod.Post))
+    { 
+        <table>
+            <tr>
+                <td>Enter ID: </td>
+                <td>@Html.TextBoxFor(m => m.Id, new { @class = "form-control", @required  = "required"})</td>
+            </tr>
+            <tr>
+                <td>Enter Date: </td>
+                <td><input class="form-control" asp-for="Date" asp-format="{0:yyyy-MM-dd}" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Generate Password" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
